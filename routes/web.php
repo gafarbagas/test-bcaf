@@ -21,7 +21,7 @@ Route::post('/authenticate',[LoginController::class, 'authenticate'])->name('aut
 Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
 Route::get('/login',[LoginController::class, 'login'])->name('login');
 
-Route::middleware(['auth','checkrole: 1'])->group(function () {
+Route::middleware(['auth','checkrole: 1,2,3'])->group(function () {
     Route::get('/',[DashboardController::class, 'index'])->name('dashboard');
 
     Route::group(['prefix' => 'pengajuan', 'as' => 'sub.'], function(){
